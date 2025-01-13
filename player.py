@@ -46,6 +46,16 @@ class Player():
             inventory_description += f"  - {name} : {item}\n"
         return inventory_description 
     
+    def get_history(self): 
+        if not self.history:
+
+            return "Aucune pièce visitée pour le moment."
+        history_s="vous avez visité"
+        for room in self.history: 
+            history_s+= f"{room.description}"
+            
+        return history_s 
+    
 
 
 

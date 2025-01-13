@@ -18,20 +18,21 @@ MSG1 = "\nLa commande '{command_word}' prend 1 seul paramètre.\n"
 
 class Actions:
     def get_history(game,list_of_words, number_of_parameters): 
+        print("salut")
         room = game.rooms
         history=game.player.history
         l = len(list_of_words)
         if l != number_of_parameters + 1:
             command_word = list_of_words[0]
-            print(MSG1.format(command_word=command_word))
+            print(MSG0.format(command_word=command_word))
             return False
         if not history:
 
-            return "Aucune pièce visitée pour le moment."
+            print("Aucune pièce visitée pour le moment.")
         history_s="vous avez visité"
-        for room in self.history: 
+        for room in history: 
             history_s+= f"{room.description}"
-            
+        print("bonjour"+ history_s)    
         return history_s 
     def go(game, list_of_words, number_of_parameters):
         """

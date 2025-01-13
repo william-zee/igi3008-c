@@ -38,7 +38,7 @@ class Game:
         self.commands["check"] = check 
         talk=Command("Talk","tu peux discuter avec le personnage :",Actions.talk, 1)
         self.commands["talk"] = talk
-        get_history=Command("get_history","/ntu peux voir ton historique :",Actions.get_history, 1)
+        get_history=Command("get_history","/ntu peux voir ton historique :",Actions.get_history, 0)
         self.commands["get_history"] = get_history
    
         
