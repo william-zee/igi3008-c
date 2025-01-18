@@ -18,8 +18,7 @@ class Characters:
     
     def move (self):
         l = ["Reste", "Deplace"]
-        resultat = random. choice (l)
-        print (resultat)
+        resultat = random.choice (l)
         if resultat == "Deplace" :
             adjacent_rooms = []
             for room in self.current_room.exits.values():

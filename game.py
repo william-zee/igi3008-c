@@ -38,9 +38,10 @@ class Game:
         self.commands["check"] = check 
         talk=Command("Talk","tu peux discuter avec le personnage :",Actions.talk, 1)
         self.commands["talk"] = talk
-        get_history=Command("get_history","/ntu peux voir ton historique :",Actions.get_history, 0)
+        get_history=Command("get_history","tu peux voir ton historique :",Actions.get_history, 0)
         self.commands["get_history"] = get_history
-   
+        get_inventory=Command("get_inventory","tu peux voir ton inventaire :",Actions.get_inventory, 0)
+        self.commands["get_inventory"] = get_inventory
         
         # Setup rooms
 
@@ -69,10 +70,10 @@ class Game:
         tower.add(hache) 
 
     #SETUP Personnage 
-        gandalf = Characters("Gandalf", "Un magicien blanc", "Forest", ["Abracadabra !", "Je suis Gandalf, le magicien!", "Le danger est proche..."])
+        gandalf = Characters("Gandalf", "Un magicien blanc",swamp, ["Abracadabra !", "Je suis Gandalf, le magicien!", "Le danger est proche..."])
         swamp.characters[gandalf.name] = gandalf 
-        mario =Characters("Mario", "un plombier qui sauve des princesses",tower.name,["Ahhhhhhh!"])
-        tower.characters[mario.name] = mario 
+        mario =Characters("Mario", "un plombier qui sauve des princesses",tower,["Ahhhhhhh!"])
+        tower.characters[mario.name] = mario
      
 
     # Create exits for rooms
@@ -120,8 +121,6 @@ class Game:
             command = self.commands[command_word]
             command.action(self, list_of_words, command.number_of_parameters)
             if command_word == "go": 
-                print(self.player.get_inventory())  
-
                 if len(self.player.current_room.characters) == 0:
                     print("\n Il n'y aucun PNJ dans la pièce")
                 else:
@@ -129,7 +128,7 @@ class Game:
                     copie = list(self.player.current_room.characters.values())
                     for characters in copie:
                         print(f" - {characters} \n")
-                        print (characters.move())
+                        
       
 
     # Print the welcome mesage

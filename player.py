@@ -31,29 +31,20 @@ class Player():
           
     def get_inventory(self): 
         # sword = Item("sword", "une épée au fil tranchant comme un rasoir", 2)  
-        # self.inventory["sword"] = sword
-        
-         
+        # self.inventory["sword"] = sword  
         if not self.inventory:
             return "Votre inventaire est vide."
-
-        inventory_description = "Vous disposez des items suivants :\n"  
-       
-        
+        inventory_description = "Vous disposez des items suivants :\n"
         for name,item in self.inventory.items(): 
-
-     
             inventory_description += f"  - {name} : {item}\n"
         return inventory_description 
     
     def get_history(self): 
         if not self.history:
-
             return "Aucune pièce visitée pour le moment."
         history_s="vous avez visité"
         for room in self.history: 
-            history_s+= f"{room.description}"
-            
+            history_s+= f"{room.description}"           
         return history_s 
     
 
